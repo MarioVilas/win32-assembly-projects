@@ -1,0 +1,139 @@
+[Project]
+Assembler=masm
+Type=Dll Project
+Description=Windows Error Descriptions
+Backup=$P\Bak\
+Group=1
+GroupExpand=1
+Ver.rc=1
+Debug=0
+
+[Files]
+1=WinErr.Asm
+2=WinErr.Inc
+3=WinErr.Rc
+4=WinErr.Def
+5=resource.h
+6=reslang.h
+7=macros.inc
+8=resource.inc
+9=DlgProc.Inc
+10=Errors.inc
+11=C:\RadAsm\Inc\RadAsm.inc
+12=C:\WinAsm\Inc\WAAddIn.inc
+13=C:\WinAsm\Inc\AddInConst.inc
+14=..\readme_winerr.txt
+AutoDelete=1
+AskMe=0
+MinorFiles=*.res;*.obj;*.lib;*.exp;
+
+[MakeFiles]
+0=WinErr.rap
+1=WinErr.rc
+2=WinErr.asm
+3=WinErr.obj
+4=WinErr.res
+5=WinErr.exe
+6=WinErr.def
+7=WinErr.dll
+8=WinErr.txt
+9=WinErr.lib
+10=WinErr.mak
+11=WinErr.hla
+12=WinErr.com
+
+[MakeDef]
+Menu=1,1,1,1,0,0,0,0,0,0
+1=4,O,$B\RC.EXE /v,1
+2=3,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",2
+3=7,O,$B\LINK.EXE /SUBSYSTEM:WINDOWS /RELEASE /DLL /DEF:$6 /LIBPATH:"$L" /OUT:"$7",3,4
+4=0,0,,5
+5=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+7=0,0,\OllyDbg\OllyDbg,5
+6=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+11=4,O,$B\RC.EXE /v,1
+12=3,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",2
+13=7,O,$B\LINK.EXE /SUBSYSTEM:WINDOWS /DEBUG /DLL /DEF:$6 /LIBPATH:"$L" /OUT:"$7",3
+14=0,0,,5
+15=rsrc.obj,O,$B\CVTRES.EXE,rsrc.res
+16=*.obj,O,$B\ML.EXE /c /coff /Cp /nologo /I"$I",*.asm
+17=0,0,\OllyDbg\OllyDbg,5
+
+[Colref]
+0=00FFFFFF
+1=00FFFFFF
+2=00FFFFFF
+3=00FFFFFF
+4=00FFFFFF
+5=00FFFFFF
+6=00FFFFFF
+7=00FFFFFF
+
+[Size]
+3=0,0,0,0,0
+4=0,0,0,0,0
+2=0,0,0,0,0
+5=0,0,0,0,0
+9=0,0,0,0,0
+8=0,0,0,0,0
+7=0,0,0,0,0
+6=0,0,0,0,0
+12=0,0,0,0,1152
+11=0,0,0,0,0
+1=0,0,0,0,0
+10=0,0,0,0,0
+13=0,0,0,0,33134
+14=0,0,0,0,0
+
+[BookMark]
+0=
+1=
+2=
+3=
+4=
+5=
+6=
+7=
+8=
+9=
+
+
+[BreakPoint]
+0=
+
+[VerInf]
+Nme=VERINF1
+ID=1
+FV=2.0.1.6
+PV=2.0.1.6
+VerOS=0x00000004
+VerFT=0x00000000
+VerLNG=0x00000409
+VerCHS=0x000004B0
+ProductName=WinErr
+OriginalFilename=WinErr.Dll
+LegalCopyright=© 2003-2004 by QvasiModo (Mario Vilas)
+InternalName=WinErr2
+FileDescription=Windows Error Descriptions
+CompanyName=QvasiModo
+
+[Group]
+Group=Added files,Assembly,Resources,Misc,Modules
+1=2
+2=2
+3=3
+4=4
+5=4
+6=4
+7=2
+8=2
+9=2
+10=2
+11=2
+12=2
+13=2
+14=4
+
+
+[Find]
+1="STYLE_"

@@ -1,0 +1,34 @@
+[PROJECT]
+Type=1
+
+[MAKE]
+ActiveBuild=0
+CompileRC=/v
+RCToObj=
+Assemble=/c /coff /Cp /nologo
+Link=/SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0
+Out=\WinAsm\AddIns\WinErr.dll
+DebAssemble=/c /coff /Cp /nologo /Fm /Zi /Zd
+DebLink=/SUBSYSTEM:WINDOWS /DEBUG /VERSION:4.0
+DebOut=\WinAsm\AddIns\WinErr.dll
+
+[SHOWFILE]
+3=-4
+4=-23
+5=868
+6=703
+1=8
+2=1
+7=1
+
+[FILES]
+1=WinErr.asm
+2=DlgProc.Inc
+3=Errors.inc
+4=macros.inc
+5=resource.inc
+6=WinErr.Inc
+7=WinErr.Rc
+8=..\readme_winerr.txt
+9=WinErr.Def
+

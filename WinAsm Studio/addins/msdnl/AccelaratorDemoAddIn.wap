@@ -1,0 +1,30 @@
+[PROJECT]
+Type=1
+ReleaseCommandLine=
+DebugCommandLine=
+
+[MAKE]
+ActiveBuild=0
+CompileRC=/v
+RCToObj=
+Assemble=/c /coff /Cp /nologo
+Link=/SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0
+Out=\winasm\AddIns\MSDNL.dll
+DebAssemble=/c /coff /Cp /nologo
+DebLink=/SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0 /debug
+DebOut=\winasm\AddIns\MSDNL.dll
+
+[SHOWFILE]
+3=-4
+4=-23
+5=631
+6=507
+1=2
+2=1
+7=1
+
+[FILES]
+1=AddIn.asm
+2=data.inc
+3=C:\winasm\Inc\WAAddIn.inc
+4=AddIn.def

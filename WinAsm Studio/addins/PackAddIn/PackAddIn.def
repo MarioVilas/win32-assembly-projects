@@ -1,0 +1,6 @@
+LIBRARY PackAddIn
+EXPORTS
+		GetWAAddInData
+		WAAddInLoad
+		WAAddInUnload
+		FrameWindowProc

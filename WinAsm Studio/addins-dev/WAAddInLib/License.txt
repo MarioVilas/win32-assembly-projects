@@ -1,0 +1,51 @@
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the 
+"Software"), to deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, merge, publish, 
+distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so.
+
+AddAccelerator (C) 2004 Mario Vilas (aka QvasiModo)
+AddInAboutBox (C) 2004 Mario Vilas (aka QvasiModo)
+AddMenuItem (C) 2004 Mario Vilas (aka QvasiModo)
+AddMenuItemEx (C) 2004 Mario Vilas (aka QvasiModo)
+AppendOutputLine (C) 2004 Mario Vilas (aka QvasiModo)
+CHAppendText (C) 2004 Mario Vilas (aka QvasiModo)
+CheckWAVersion (C) 2004 Mario Vilas (aka QvasiModo)
+CHInsertLine (C) 2004 Mario Vilas (aka QvasiModo)
+ClearOutputWindow (C) 2004 Mario Vilas (aka QvasiModo)
+CreateDockingWindow (C) 2004 Mario Vilas (aka QvasiModo)
+DestroyDockingWindow (C) 2004 Mario Vilas (aka QvasiModo)
+InitializeAddIn (C) 2004 Mario Vilas (aka QvasiModo)
+FindAddInClose (C) 2004 Mario Vilas (aka QvasiModo)
+FindFirstAddIn (C) 2004 Mario Vilas (aka QvasiModo)
+FindNextAddIn (C) 2004 Mario Vilas (aka QvasiModo)
+GetActiveCodeHi (C) 2004 Mario Vilas (aka QvasiModo)
+GetBuildMode (C) 2004 Mario Vilas (aka QvasiModo)
+GetOutputFile (C) 2004 Mario Vilas (aka QvasiModo)
+GetWAImageList (C) 2004 Mario Vilas (aka QvasiModo)
+GetWASubMenu (C) 2004 Mario Vilas (aka QvasiModo)
+HideNonProjectFiles (C) 2004 Mario Vilas (aka QvasiModo)
+HideProjectFiles (C) 2004 Mario Vilas (aka QvasiModo)
+InstallAddIn (C) 2004 Mario Vilas (aka QvasiModo)
+LoadAddIn (C) 2004 Mario Vilas (aka QvasiModo)
+MarkProjectFilesAsSaved (C) 2004 Mario Vilas (aka QvasiModo)
+NewAddinMenuItem (C) 2004 Mario Vilas (aka QvasiModo)
+NewHelpMenuItem (C) 2004 Mario Vilas (aka QvasiModo)
+NewProjectMenuItem (C) 2004 Mario Vilas (aka QvasiModo)
+NewViewMenuItem (C) 2004 Mario Vilas (aka QvasiModo)
+RemoveAccelerator (C) 2004 Mario Vilas (aka QvasiModo)
+RemoveAddinMenuItem (C) 2004 Mario Vilas (aka QvasiModo)
+RemoveHelpMenuItem (C) 2004 Mario Vilas (aka QvasiModo)
+RemoveViewMenuItem (C) 2004 Mario Vilas (aka QvasiModo)
+QueryAddIn (C) 2004 Mario Vilas (aka QvasiModo)
+UnloadAddIn (C) 2004 Mario Vilas (aka QvasiModo)
+WasProjectModified (C) 2004 Mario Vilas (aka QvasiModo)
+
+The Software is provided "as is", without warranty of any kind, express
+or implied, including but not limited to the warranties of 
+merchantability, fitness for a particular purpose and noninfringement.
+In no event shall the authors or copyright holders be liable for any 
+claim, damages or other liability, whether in an action of contract, 
+tort or otherwise, arising from, out of or in connection with the
+Software or the use or other dealings in the Software.

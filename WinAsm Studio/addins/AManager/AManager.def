@@ -1,0 +1,6 @@
+LIBRARY AManager
+EXPORTS	GetWAAddInData
+		WAAddInLoad
+		WAAddInUnload
+		WAAddInConfig
+		FrameWindowProc

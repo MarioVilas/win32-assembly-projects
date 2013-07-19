@@ -1,0 +1,20 @@
+LIBRARY WinErr
+EXPORTS
+        AddInDescription
+        AddInAuthor
+        AddInLoad
+        AddInUnLoad
+        AddInMenu
+
+        InstallDll
+        DllProc
+        GetOptions
+
+        GetWAAddInData
+		WAAddInLoad
+		WAAddInUnload
+		FrameWindowProc
+
+        QePlugIn
+
+        AsmEditProc

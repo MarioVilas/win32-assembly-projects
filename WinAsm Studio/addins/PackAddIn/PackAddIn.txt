@@ -1,0 +1,104 @@
+EXE Packer Addin for WinAsm
+® Mario Vilas (aka QvasiModo)
+Version 2.0.2.2
+Last updated 31 Aug 04
+
+--------------------------------------oOo--------------------------------------
+
+This addin automatically launches the an EXE packer after a project build has
+ completed. It defaults to the UPX packer, simply because it's my favorite ;)
+ but you can change that after installation.
+
+For this add-in to work properly, the pathname and command line for UPX or a
+ similar packer must be provided. You can set it in the config dialog
+ (Add-Ins -> EXE Packer AddIn Options).
+
+Additionally, you can keep several configurations, called "Profiles". This lets
+ you, for example, change quickly from one packer to another. The default
+ profiles are setup to be used with the following packers:
+
+	ASPack, by Alexey Solodovnikov (www.aspack.com)
+	Exe32pack, by SteelBytes (louis@SteelBytes.com)
+	JDPack, by Jiang Dong (www.tlz18.com)
+	Mew 5 packer, by Northfox (hcc.kenyer.hu)
+	Mew 10 packer, by Northfox (hcc.kenyer.hu)
+	PE Compact, by Jeremy Collake (www.CollakeSoftware.com)
+	PE Compact 2, by Jeremy Collake (www.CollakeSoftware.com)
+	PECRYPT32, by random, killa and acpizer
+	PE Insert, by Jeremy Collake (www.CollakeSoftware.com)
+	PELock (www.pelock.prv.pl)
+	PELOCKnt, by MARQUIS and WIESEL
+	PE-PaCK, by ANAKiN (anakin__@gmx.net)
+	PE-PROTECT, by Christoph Gabler (ChristophG1@Hotmail.Com)
+	Petite, by Ian Luck (www.un4seen.com/petite)
+	PE Trim, by Jeremy Collake (www.CollakeSoftware.com)
+	Shrinker, from Blink Inc (www.blinkinc.com)
+	StampVer, by Paul Dixon (www.elphin.com/products/stampver.html)
+	UPX, by Markus Oberhumer & Laszlo Molnar (upx.sourceforge.net)
+	UPX Shell, by Ion Tek (upxshell.sf.net)
+	VGCrypt PE Encryptor, by Virogen (virogen.cjb.net)
+	Virogen's PE Realigner, by Virogen (virogen.cjb.net)
+	WWPack32, by Piotr Warezak and Rafal Wierzbicki (www.webmedia.pl/wwpack32)
+	yoda's Crypter, by yoda (y0da.cjb.net)
+
+--------------------------------------oOo--------------------------------------
+
+Instructions:
+
+To install, follow this steps:
+
+- Copy PackAddIn.dll to your addins folder (typically C:\WinAsm\Addins).
+- Open the Addins Manager, and enable the addin.
+
+To configure it, just select the menu option (Addins -> EXE Packer AddIn
+ Options), and a popup dialog box will be shown. The addin must be enabled
+ for this menu item to appear.
+
+Additionally, you can manually edit the config file (WAAddIns.Ini) located in
+ your AddIns folder. The settings are stored in the [PackAddIn] section.
+
+--------------------------------------oOo--------------------------------------
+
+Compatibility notes:
+
+WinAsm Studio version 3.0.1.6 or above is required.
+
+This addin was previously known as "UPX AddIn for WinAsm".
+
+Versions prior to 2.00 used the [UPXaddinWA] section in WAAddIns.Ini to store
+ the settings. It's contents are automatically moved to the new section the
+ first time the addin is loaded.
+
+Versions prior to 1.02 used C:\Windows\UPXaddin.Ini to store the settings.
+ It's contents are automatically moved to the new file, and the old file will
+ be deleted, the first time the addin is loaded.
+
+--------------------------------------oOo--------------------------------------
+
+Acknowledgements:
+
+A big "thank you" for Akyprian, for making WinAsm Studio, getting rid of that
+ annoying XP themes bug in this addin, and much more :)
+
+--------------------------------------oOo--------------------------------------
+
+I am in no way related to the authors of the PE packers supported by this
+add-in. All registered trademarks named in this document belong to their
+respective owners.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the 
+"Software"), to deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, merge, publish, 
+distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so.
+
+Acknowledgement is appreciated, but not required. :)
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

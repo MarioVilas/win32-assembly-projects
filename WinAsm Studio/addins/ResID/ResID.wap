@@ -1,0 +1,34 @@
+[PROJECT]
+Type=1
+ReleaseCommandLine=
+DebugCommandLine=
+AutoIncFileVersion=0
+
+[MAKE]
+ActiveBuild=0
+CompileRC=/v
+RCToObj=
+Assemble=/c /coff /Cp /nologo
+Link=/SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0
+Out=C:\winasm\addins\ResID.dll
+DebAssemble=/c /coff /Cp /nologo /Fm /Zi /Zd /D DEBUG_BUILD
+DebLink=/SUBSYSTEM:WINDOWS /DEBUG /VERSION:4.0
+DebOut=C:\winasm\addins\ResID.dll
+
+[SHOWFILE]
+3=-4
+4=-23
+5=831
+6=703
+1=1
+2=1
+7=1
+
+[FILES]
+1=ResID.asm
+2=WAAddIn.inc
+3=WAAddInLib.inc
+4=ResID.txt
+5=ResID.def
+6=ResID.rc
+

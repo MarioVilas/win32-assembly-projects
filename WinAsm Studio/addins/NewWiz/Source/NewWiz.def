@@ -1,0 +1,12 @@
+; New Project Wizard Add-In for WinAsm Studio
+; Copyright (C) 2004 Mario Vilas (aka QvasiModo)
+; All rights reserved.
+; Freeware for any use. See readme.txt for licensing details.
+
+LIBRARY NewWiz
+EXPORTS
+		FrameWindowProc
+		GetWAAddInData
+		WAAddInConfig
+		WAAddInLoad
+		WAAddInUnload

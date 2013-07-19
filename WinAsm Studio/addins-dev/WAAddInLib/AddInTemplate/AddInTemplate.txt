@@ -1,0 +1,42 @@
+%title% Add-In for WinAsm Studio
+This is a Template Add-In
+® 2004 by Author
+All rights reserved
+
+Version 1.0.0.0
+Last Updated DD Mmm YY
+
+--------------------------------------oOo--------------------------------------
+
+To install, follow this steps:
+
+1. Copy %title%.dll to your addins folder (typically C:\WinAsm\Addins).
+2. Open the Addins Manager (Add-Ins -> Add-In Manager).
+3. Select the addin and enable it. You can also set it to load on startup.
+
+--------------------------------------oOo--------------------------------------
+
+To use this addin, follow this steps:
+
+1. 
+
+--------------------------------------oOo--------------------------------------
+
+Thanks
+
+--------------------------------------oOo--------------------------------------
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the 
+"Software"), to deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, merge, publish, 
+distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so.
+
+The Software is provided "as is", without warranty of any kind, express
+or implied, including but not limited to the warranties of 
+merchantability, fitness for a particular purpose and noninfringement.
+In no event shall the authors or copyright holders be liable for any 
+claim, damages or other liability, whether in an action of contract, 
+tort or otherwise, arising from, out of or in connection with the
+Software or the use or other dealings in the Software.

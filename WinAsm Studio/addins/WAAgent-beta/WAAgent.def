@@ -1,0 +1,10 @@
+LIBRARY WAAgent
+
+EXPORTS	GetWAAddInData
+		WAAddInLoad
+		WAAddInUnload
+		FrameWindowProc
+		;ChildWindowProc
+		;ProjectExplorerProc
+		;OutWindowProc
+		RunDll32

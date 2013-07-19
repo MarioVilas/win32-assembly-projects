@@ -1,0 +1,34 @@
+[PROJECT]
+Type=1
+
+[MAKE]
+CompileRC=/v
+RCToObj=
+Assemble=/c /coff /Cp /nologo
+Link=/SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0
+Out=C:\WinAsm\AddIns\WAAgent.dll
+ActiveBuild=0
+DebAssemble=
+DebLink=
+DebOut=
+
+[SHOWFILE]
+3=4294967292
+4=4294967273
+5=868
+6=703
+1=7
+2=1
+7=1
+
+[FILES]
+1=WAAgent.asm
+2=WAAgent.inc
+3=C:\WinASM\Inc\WAAddIn.inc
+4=macros.inc
+5=RunDll32.inc
+6=WAAgent.rc
+7=WAAgent.txt
+8=WAAgent.def
+9=Res/WAAgent.xml
+

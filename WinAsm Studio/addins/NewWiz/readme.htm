@@ -1,0 +1,284 @@
+<html><head><title>New Project Wizard Add-In for WinAsm Studio</title></head>
+<body><pre>
+New Project Wizard Add-In for WinAsm Studio
+Copyright (C) 2004-2005 Mario Vilas (aka QvasiModo)
+All rights reserved.
+
+Original filename: NewWiz.dll
+Current version:   1.3.4.1
+Last updated:      30 Sep 05
+
+--------------------------------------oOo--------------------------------------
+
+<b>Index:</b>
+
+<a href="#install">Install instructions</a>
+<a href="#usage">Usage instructions</a>
+    <a href="#usage1">1) The "New Project" Wizard</a>
+        <a href="#usage11">1.1) Create a new empty project</a>
+        <a href="#usage12">1.2) Create a new project from a template</a>
+        <a href="#usage13">1.3) Create a new project from existing sources</a>
+        <a href="#usage13">1.4) Clone an existing project</a>
+    <a href="#usage2">2) The "Project Properties" dialog box</a>
+        <a href="#usage21">2.1) The "Build" page</a>
+        <a href="#usage22">2.2) The "Run" page</a>
+        <a href="#usage23">2.3) The "Misc" page</a>
+<a href="#templates">Notes on project templates</a>
+    <a href="#templates1">1) Environment variables substitutions</a>
+    <a href="#templates2">2) The [TEMPLATE] section</a>
+<a href="#developers">Notes for add-in developers</a>
+<a href="#thanks">Acknowledgments</a>
+<a href="#legal">Legal</a>
+
+--------------------------------------oOo--------------------------------------
+
+<a name="install"><b>Install instructions:</b></a>
+
+To install, follow this steps:
+
+1. Copy NewWiz.dll to your addins folder (typically C:\WinAsm\Addins).
+2. Open the Addins Manager (Add-Ins -> Add-In Manager)
+3. Select the addin and enable it. You can also set it to load on startup.
+
+This is only needed for manual installs. If you installed WinAsm Studio from
+ the self installing package, this add-in is already there. :)
+
+To configure the add-in, go to the Addins Manager, select this add-in an click
+ on the "Configure" button. A config dialog box will pop up, there you can
+ enable or disable the GUI enhancements provided by this add-in, and set some
+ other options as well.
+
+--------------------------------------oOo--------------------------------------
+
+<a name="usage"><b>Usage instructions:</b></a>
+
+When the addin is installed, some dialog boxes will be replaced by new ones.
+ This features can be enabled or disabled by editing the add-ins INI file: at
+ the section [New Project Wizard], you can edit the keys "EnableWizard" and/or
+ "EnableProperties", set to 1 to enable or 0 to disable the enhanced versions
+ of the new project wizard and project properties dialogs respectively.
+
+<a name="usage1"><b>1) The "New Project" Wizard</b></a>
+
+The dialog box to create new projects is replaced by a wizard. In the first
+ page, the user is presented with this three options:
+
+    <i>1. Create a new empty project</i>
+    <i>2. Create a new project from a template</i>
+    <i>3. Create a new project from existing sources</i>
+
+The add-in will remember the last taken choices for each page.
+
+<a name="usage11"><b>1.1) Create a new empty project</b></a>
+
+The wizard will prompt for a project type, and a new empty project is
+ immediately created. No mistery here. ;)
+
+<a name="usage12"><b>1.2) Create a new project from a template</b></a>
+
+Choose a template project (projects found typically at C:\WinAsm\Templates)
+ and a target folder (you can create a new one). Then the addin will copy
+ all files from the template into the target directory. After that, the new
+ project file will be opened. For more details on some extra features when
+ creating projects from templates, please see the <a href="#templates">notes</a> below.
+
+<a name="usage13"><b>1.3) Create a new project from existing sources</b></a>
+
+After choosing a project type, you will be prompted for a list of files to
+ be automatically included in the new project. Use this option, for example,
+ if you want to convert an existing project for another IDE to WinAsm Studio.
+
+<a name="usage14"><b>1.4) Clone an existing project</b></a>
+
+This mode of operation is identical in all aspects to 1.3 (create a project
+ from a template), except that it will let you take any WinAsm Studio project
+ as if it was a template.
+
+<a name="usage2"><b>2) The "Project Properties" dialog box</b></a>
+
+This new version of the project properties box has two pages:
+
+<a name="usage21"><b>2.1) The "Build" page</b></a>
+
+From here you can configure all the command line switches that WinAsm Studio
+ will use when building your project. This are the items you can configure:
+
+    <i>Type:</i>       This is the project type. It can be one of the following:
+                . Standard EXE
+                . Standard DLL
+                . Console Application
+                . Static Library
+                . Other (EXE)
+                . Other (Non-EXE)
+                . DOS Project
+                The "Load" button lets you revert all other settings in this
+                page to the defaults for the current project type. The "Save"
+                button lets you change this defaults. Note that this defaults
+                will also be used when creating new projects!
+
+    <i>Compile RC:</i> This are the command line switches to pass to the resource
+                compiler (RC.EXE), in case the current project has an resource
+                scripts. You can click on the "Switches" button (next to the
+                text box) to visually add command line switches.
+
+    <i>Res To Obj:</i> This are the command line switches to pass to the .res to .obj
+                file converter. If you don't specify any switches, this
+                program won't be called during project build. You can click on
+                the "Switches" button (next to the text box) to visually add
+                command line switches.
+
+    <i>Assemble:</i>   This are the command line switches to pass to the assembler
+                (ML.EXE). You can click on the "Switches" button (next to the
+                text box) to visually add command line switches.
+
+    <i>Link:</i>       This are the command line switches to pass to the linker
+                (LINK.EXE). You can click on the "Switches" button (next to
+                the text box) to visually add command line switches.
+
+    <i>/OUT:</i>       This lets you override the build output filename for your
+                project. If you don't specify any, WinAsm will use the default
+                filename (based on the project name). You can click on the
+                "Browse" button (next to the text box) to browse for an output
+                filename.
+
+<a name="usage22"><b>2.2) The "Run" page</b></a>
+
+From here you can specify any optional command line switches you may want
+ WinAsm to pass to your program when you run it from the IDE. This page will
+ only be visible if you run the add-in on WinAsm Studio 3.0.2.7 or above, and
+ the current project builds an EXE.
+
+You can set two different command line switches for both "release" and "debug"
+ modes. Additionally, each has a set of alternative command line switches;
+ these will NOT be used by WinAsm, they're just provided for your commodity.
+ You can click on the "Add" button (the one with a "plus" sign) to add the
+ current command line switches to the set. The "Remove" button (the one with a
+ "minus" sign) will remove from the set all selected lines.
+
+<a name="usage23"><b>2.3) The "Misc" page</b></a>
+
+Here are all the settings that didn't belong to any of the other pages.
+
+You can choose the compiler WinAsm will use for this project. Currently only
+ MASM32 and FASM are supported (you'll need Shoorick's FASM add-in for the
+ latter). Default is MASM32.
+
+There are two more options: "Auto increment file version" and "Handle RC files
+ incompatible statements silently", of obvious meanings.
+
+--------------------------------------oOo--------------------------------------
+
+<a name="templates"><b>Notes on project templates:</b></a>
+
+Project templates are found typically at C:\WinAsm\Templates. They are ordinary
+ projects, whose .wap file MUST be named after the directory they reside. They
+ are used to quickly create new projects without having to start from scratch.
+ For more information on WinAsm Studio project templates, please see the help
+ file (Help -> WinAsm Studio Help).
+
+This add-in provides some features to enhance the functionality of WinAsm
+ Studio project templates:
+
+<a name="templates1"><b>1) Environment variables substitutions</b></a>
+
+If you use any environment variables in the template's WAP file, they will be
+ expanded when creating the new project. There are also some "special"
+ environment variables provided by the add-in: (folders don't have an ending
+ backslash in this case)
+
+    <i>%project%</i>         Project filename
+    <i>%folder%</i>          Project folder
+    <i>%title%</i>           Project title
+    <i>%wafolder%</i>        WinAsm folder (usually C:\WinAsm)
+    <i>%waaddins%</i>        Add-Ins folder (usually C:\WinAsm\AddIns)
+    <i>%wabin%</i>           Bin folder (usually C:\masm32\bin)
+    <i>%wainc%</i>           Include folder (usually C:\masm32\include)
+    <i>%walib%</i>           Library folder (usually C:\masm32\lib)
+
+You can use this variables in the make command line switches (under the [MAKE]
+ section in the .wap file), the project filenames (under the [FILES] section),
+ and/or the run command line switches (under the [PROJECT] section).
+
+<a name="templates2"><b>2) The [TEMPLATE] section</b></a>
+
+Project templates can have an extra section named [TEMPLATE], which will be
+ automatically removed from the resulting .wap file when creating a new
+ project. This section contains some extra info the add-in can use.
+
+This section currently has two keys: "Parse" and "Rename".
+
+The "Parse" key consists of a list of filenames, separated by commas, in which
+ the add-in will search for environment variable names and replace them for
+ their contents.
+
+The "Rename" key is a boolean (0 for false, 1 for true) that enables another
+ feature: when this key is set to true, any files in the newly created project
+ that have the same name as the template will be renamed after the new project
+ title. For example, if you have a template called "Test", and you create a
+ project named "New", all files named "Test.*" will be renamed to "New.*". Note
+ that the add-in will NOT recurse subdirectories.
+
+--------------------------------------oOo--------------------------------------
+
+<a name="developers"><b>Notes for add-in developers:</b></a>
+
+Some private messages are sent to all addins in their FrameWindow procedure, to
+ notify of certain events. The numeric IDs of this messages can be obtained
+ like this:
+
+    invoke RegisterWindowMessage,CTEXT("MessageStringID")
+
+where "MessageStringID" is a placeholder for the actual string ID.
+
+This are the supported string IDs and their corresponding events:
+
+    <i>WANewWizAddInBegin</i>  (+1.1.0.7) The "New Project Wizard" addin has been
+                         loaded. You can edit WAAddIns.ini before the settings
+                         are read.
+    <i>WANewWizAddInEnd</i>    (+1.1.0.7) The "New Project Wizard" addin has been
+                         unloaded. You can edit WAAddIns.ini after the settings
+                         are saved.
+    <i>WAProjPropMsg</i>       (+1.1.0.0) The new project properties dialog box was
+                         opened. Since it's a standard property sheet you can
+                         add new pages to it. The wParam value is the window
+                         handle. The expected page size is 227 x 220 DBUs.
+
+--------------------------------------oOo--------------------------------------
+
+<a name="thanks"><b>Acknowledgments:</b></a>
+
+A very warm thank you for Antonis Kyprianou for making the WinAsm IDE
+ and helping me a lot with bugfixes and the code to create new projects. I'd
+ also like to thank JimG for making the WinAsm Studio help file, and including
+ this "readme" text in it; PhoBos for kindly providing most of the images I used
+ here, and all the folks at the WinAsm Studio board for your bug reports and
+ suggestions. :)
+
+The left bar image ("Bar.bmp") was taken from Wizard Images Collection
+ for Inno Setup, copyright (C) 1999-2003 Kornél Pál.
+
+All other images were either taken from WinAsm Studio, or publically
+ available on the Internet.
+
+--------------------------------------oOo--------------------------------------
+
+<a name="legal"><b>Legal:</b></a>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the 
+"Software"), to deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, merge, publish, 
+distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so.
+
+Acknowledgement is appreciated, but not required. :)
+
+The Software is provided "as is", without warranty of any kind, express
+or implied, including but not limited to the warranties of 
+merchantability, fitness for a particular purpose and noninfringement.
+In no event shall the authors or copyright holders be liable for any 
+claim, damages or other liability, whether in an action of contract, 
+tort or otherwise, arising from, out of or in connection with the
+Software or the use or other dealings in the Software.
+
+</pre></body></html>

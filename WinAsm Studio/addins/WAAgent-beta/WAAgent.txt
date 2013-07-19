@@ -1,0 +1,35 @@
+WinAsm Studio Agent
+Tray icon on startup, pre-loading, updates checking and filetypes preserving.
+® 2004 by Mario Vilas (aka QvasiModo)
+All rights reserved
+
+Version 1.1.0.1 BETA
+Last Updated 27 Jul 04
+
+-oOo-
+
+How it works:
+ 	When you enable the Agent, it will automatically startup with Windows and add
+ it's icon to the tray. From there you can quickly load WinAsm by double-clicking
+ the icon.
+ 	The first step to install the Agent is to copy the addin's file (WAAgent.dll)
+ in your addins folder (typically C:\WinAsm\AddIns).
+ 	Then, to enable the agent, and select which parts of WinAsm Studio to preload,
+ you must first load the addin from the Addins Manager, then open the Agent
+ settings dialog box (Add-Ins -> WinAsm Studio Agent Options).
+
+Additional features:
+ 	Preloading: The Agent can pre-load parts of WinAsm Studio, so it will run
+ faster. This includes the program itself, used addins, unused addins, keyword
+ and API files, and/or the entire last used project.
+ 	Filetypes preserving: The Agent can automatically preserve WinAsm file type
+ associations from external modifications. You need to have installed the Shell
+ Integration Addin version 1.03 or higher for this feature to work.
+
+Not implemented yet:
+ 	Updates checking: The Agent can automatically check for program or addins
+ updates on the web. You can also do this manually from the tray icon menu.
+
+-oOo-
+
+This program is freeware, and you are free to use and/or redistribute it, provided no modifications are made to the original package, and I am given the proper credit. :)

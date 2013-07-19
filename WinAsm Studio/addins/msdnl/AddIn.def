@@ -1,0 +1,9 @@
+LIBRARY WAQuickHelp1
+
+EXPORTS	GetWAAddInData
+		WAAddInLoad
+		WAAddInUnload
+		FrameWindowProc
+		;ChildWindowProc
+		;ProjectExplorerProc
+		;OutWindowProc

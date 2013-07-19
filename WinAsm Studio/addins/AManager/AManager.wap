@@ -1,0 +1,33 @@
+[PROJECT]
+Type=1
+ReleaseCommandLine=
+DebugCommandLine=
+AutoIncFileVersion=0
+
+[MAKE]
+ActiveBuild=0
+CompileRC=/v
+RCToObj=
+Assemble=/c /coff /Cp /nologo
+Link=/SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0
+Out=\WinAsm\AddIns\AManager.dll
+DebAssemble=/c /coff /Cp /nologo /Fm /Zi /Zd /D DEBUG_BUILD
+DebLink=/SUBSYSTEM:WINDOWS /DEBUG /VERSION:4.0
+DebOut=\WinAsm\AddIns\AManager.dll
+
+[SHOWFILE]
+3=-4
+4=-23
+5=831
+6=703
+1=1
+2=1
+7=1
+
+[FILES]
+1=AManager.asm
+2=WAAddInLib.inc
+3=AManager.rc
+4=AManager.txt
+5=AManager.def
+

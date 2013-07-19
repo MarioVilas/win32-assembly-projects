@@ -1,0 +1,8 @@
+LIBRARY Test
+EXPORTS	GetWAAddInData
+		WAAddInLoad
+		WAAddInUnload
+		FrameWindowProc
+;		ChildWindowProc
+;		ProjectExplorerProc
+;		OutWindowProc

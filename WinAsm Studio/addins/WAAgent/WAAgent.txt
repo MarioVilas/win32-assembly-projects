@@ -1,0 +1,24 @@
+WinAsm Studio Agent Add-In for WinAsm Studio
+Pre-loads part of WinAsm Studio on Windows startup to speed its loading
+® 2004 by Mario Vilas (aka QvasiModo)
+All rights reserved
+
+Version 1.00
+Last Updated 27 Jul 04
+
+-oOo-
+
+How it works:
+ 	When you enable the Agent, it will automatically startup with Windows and add
+ it's icon to the tray. From there you can quickly load WinAsm by double-clicking
+ the icon. Additionally, you can make the Agent pre-load part of WinAsm Studio so
+ it will run faster when you open it later.
+ 	The first step to install the Agent is to copy the addin's file (WAAgent.dll)
+ in your addins folder (typically C:\WinAsm\AddIns).
+ 	Then, to enable the agent, and select which parts of WinAsm Studio to preload,
+ you must first load the addin from the Addins Manager, then open the Agent
+ settings dialog box (Add-Ins -> WinAsm Studio Agent Options).
+
+-oOo-
+
+This program is freeware, and you are free to use and/or redistribute it, provided no modifications are made to the original package, and I am given the proper credit. :)

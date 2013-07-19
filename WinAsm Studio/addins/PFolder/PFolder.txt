@@ -1,0 +1,115 @@
+Show Project Folder Add-In
+Shows the current project folder in a shell window
+® 2004 by Mario Vilas (aka QvasiModo)
+All rights reserved
+
+Version 1.0.0.4
+Last Updated 02 Oct 04
+
+--------------------------------------oOo--------------------------------------
+
+Install instructions:
+
+To install, follow this steps:
+
+1. Copy PFolder.dll to your addins folder (typically C:\WinAsm\Addins).
+2. Open the Addins Manager (Add-Ins -> Add-In Manager).
+3. Select the addin and enable it. You can also set it to load on startup.
+
+--------------------------------------oOo--------------------------------------
+
+Usage instructions:
+
+This addin will just add a menu item that launches the current project folder
+ in a shell Explorer window. It's functionality is basically similar to the
+ "WinASM Explorer" addin by PhoBos.
+
+You can configure the placement of this item by editing the file "WAAddIns.ini"
+ located in your addins folder, under the section [Show Project Folder Add-In].
+
+The key named "Caption" is the menu item's text, the "MenuPos" and "ItemPos"
+ keys are the zero based index positions of the popup and item respectively.
+ When ItemPos equals -1 the item is appended at the bottom of the popup menu.
+
+Additionally you can insert a menu item separator. The "SeparatorPos" key sets
+ the separator's position within the menu. A value of -2 (or simply removing
+ the key) disables this feature. Since the separator is inserted before the
+ item, when both the item and separator have the same position the item is
+ placed above the separator.
+
+This are the possible values for "MenuPos", and their meanings:
+	 0: 	File
+	 1: 	Edit
+	 2: 	View
+	 3: 	Project
+	 4: 	Format
+	 5: 	Dialog
+	 6: 	Make
+	 7: 	Tools
+	 8: 	Add-Ins
+	 9: 	Window
+	10: 	Help
+
+By default the Explorer window will be opened maximized. You can change that
+ behavior by adding a new key to the addin's section, "ShowCmd", with one of
+ the following values (note that they correspond to some of the SW_* equates):
+	1:		Normal
+	2:		Minimized
+	3:		Maximized
+	4:		Normal, don't activate
+	7:		Minimized, don't activate
+
+--------------------------------------oOo--------------------------------------
+
+Some examples:
+
+This are the default settings, places the item under Project -> Properties:
+
+	[Show Project Folder Add-In]
+	Caption=Show Project Folder
+	MenuPos=3
+	ItemPos=-1
+
+This example does the same as above, but adds a separator too:
+
+	[Show Project Folder Add-In]
+	Caption=Show Project Folder
+	MenuPos=3
+	SeparatorPos=-1
+	ItemPos=-1
+
+This example places the menu item right under Tools -> Command:
+
+	[Show Project Folder Add-In]
+	Caption=Show Project Folder
+	MenuPos=7
+	ItemPos=11
+
+This one makes the addin behave just like PhoBos's "WinASM Explorer":
+
+	[Show Project Folder Add-In]
+	Caption=Project folder...
+	MenuPos=9
+	SeparatorPos=0
+	ItemPos=0
+
+--------------------------------------oOo--------------------------------------
+
+Legal notes:
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the 
+"Software"), to deal in the Software without restriction, including 
+without limitation the rights to use, copy, modify, merge, publish, 
+distribute, sublicense, and/or sell copies of the Software, and to 
+permit persons to whom the Software is furnished to do so.
+
+Acknowledgement is appreciated, but not required. :)
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

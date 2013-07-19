@@ -1,0 +1,8 @@
+EXPORTS	GetWAAddInData
+		WAAddInLoad
+		WAAddInUnload
+;		WAAddInConfig
+		FrameWindowProc
+;		ChildWindowProc
+;		ProjectExplorerProc
+;		OutWindowProc

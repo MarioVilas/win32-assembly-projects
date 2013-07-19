@@ -1,0 +1,50 @@
+- agregar un boton en la barra para "Pack"
+- si se puede, hacer que el item del menu tenga iconos
+- tratar de capturar la salida de consola, y mandarla a la ventana Output
+- hacer ayuda?
+- soportar tb versiones anteriores a la 3.0.0.3???
+
+
+
+
+
+
+
+;WINASM_VERSION_HIGH	equ 00030000h		;3.0
+;WINASM_VERSION_LOW	equ 00000003h		;   .0.3
+
+	;Check WinAsm Studio version
+;	invoke GetModuleFileName,NULL,offset buffer,sizeof buffer
+;	invoke GetFileVersionInfoSize,offset buffer,addr dwLength
+;	.if eax != 0
+;		mov dwLength,eax
+;		invoke LocalAlloc,LPTR,eax
+;		.if eax != NULL
+;			mov pData,eax
+;			invoke GetFileVersionInfo,offset buffer,NULL,dwLength,eax
+;			.if eax != 0
+;				mov dwLength,sizeof VS_FIXEDFILEINFO
+;				invoke VerQueryValue,pData,offset szRoot,addr pVerInfo,addr dwLength
+;				.if eax != 0
+;					mov eax,pVerInfo
+;					IFDEF DEBUG_BUILD
+;						mov ecx,[eax].VS_FIXEDFILEINFO.dwFileVersionMS
+;						mov edx,[eax].VS_FIXEDFILEINFO.dwFileVersionLS
+;						PrintHex ecx
+;						PrintHex edx
+;					ENDIF
+;					cmp [eax].VS_FIXEDFILEINFO.dwFileVersionMS,WINASM_VERSION_HIGH
+;					jl badver
+;					.if zero?
+;						cmp [eax].VS_FIXEDFILEINFO.dwFileVersionLS,WINASM_VERSION_LOW
+;						jge goodver
+;badver:					invoke MessageBox,[ebx].HANDLES.hMain,offset szOldWinAsm,offset szError,MB_OK or MB_ICONERROR
+;						push 1
+;						pop eax
+;						ret
+;goodver:			.endif
+;				.endif
+;			.endif
+;			invoke LocalFree,pData
+;		.endif
+;	.endif
