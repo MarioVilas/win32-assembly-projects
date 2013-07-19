@@ -1,0 +1,13 @@
+Known bugs:
+- scrolling doesn't show the region mask properly
+
+To do:
+- command line
+- shell integration
+? b&w
+
+? use scroll bar controls
+- improve scroll bars, by redrawing only as necessary
+? status bar
+
+? save last settings in INI file

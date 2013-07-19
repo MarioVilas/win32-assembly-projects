@@ -1,0 +1,39 @@
+; Project file for use with WinAsm Studio
+; http://code4u.net/winasm
+
+[PROJECT]
+Type=0
+
+[MAKE]
+ActiveBuild=0
+CompileRC=/v
+RCToObj=
+Assemble=/c /coff /Cp /nologo
+Link=/SUBSYSTEM:WINDOWS /RELEASE /VERSION:4.0
+Out=
+DebAssemble=/c /coff /Cp /nologo /Fm /Zi /Zd
+DebLink=/SUBSYSTEM:WINDOWS /DEBUG /VERSION:4.0
+DebOut=
+
+[SHOWFILE]
+3=4294967292
+4=4294967273
+5=868
+6=703
+1=10
+2=1
+7=1
+
+[FILES]
+1=MakeRegion.Asm
+2=MakeRegion.Inc
+3=Res.Inc
+4=CenterDialog.inc
+5=LoadFilteredIcon.inc
+6=LoadPictureH.Inc
+7=LoadResPicture.inc
+8=macros.inc
+9=dummy.rc
+10=readme.txt
+11=Res\MakeRegion.xml
+

@@ -1,0 +1,276 @@
+#include "\masm32\include\resource.h"
+#include "Res.h"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+IDI_ICON1   ICON DISCARDABLE    "Res/MarsFace.ico"
+IDI_ICON2   ICON DISCARDABLE    "Res/Stop.ico"
+IDI_ICON3   ICON DISCARDABLE    "Res/Warn.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version Info
+//
+#define VERINF1 1
+VERINF1 VERSIONINFO
+FILEVERSION 1,0,2,0
+PRODUCTVERSION 1,0,2,0
+FILEOS 0x00000004
+FILETYPE 0x00000002
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904B0"
+    BEGIN
+      VALUE "LegalCopyright", "© 2003-2004 Mario Vilas (aka QvasiModo)\0"
+      VALUE "OriginalFilename", "MakeRegion.exe\0"
+      VALUE "ProductName", "MakeRegion - a freeware GDI region generator\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x0409, 0x04B0
+  END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Manifest
+//
+1 24 DISCARDABLE "Res/MakeRegion.xml"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOGEX DISCARDABLE  0, 0, 272, 182
+STYLE DS_NOIDLEMSG | DS_3DLOOK | DS_NOFAILCREATE | DS_CENTER | 
+    WS_MINIMIZEBOX | WS_MAXIMIZEBOX | WS_VISIBLE | WS_CAPTION | WS_VSCROLL | 
+    WS_HSCROLL | WS_SYSMENU | WS_THICKFRAME
+EXSTYLE WS_EX_NOPARENTNOTIFY | WS_EX_CLIENTEDGE
+CAPTION "MakeRegion - [Untitled]"
+FONT 8, "MS Sans Serif"
+CLASS "MRDlgClass"
+BEGIN
+//    LTEXT           "No picture loaded",IDC_STATIC1,107,87,57,8,WS_DISABLED | 
+//                    NOT WS_GROUP
+END
+
+IDD_DIALOG2 DIALOGEX DISCARDABLE  0, 0, 136, 55
+STYLE DS_MODALFRAME | DS_NOIDLEMSG | DS_3DLOOK | DS_NOFAILCREATE | //;DS_CENTER | 
+    WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Color matching tolerance"
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "% Red:",IDC_STATIC,4,4,30,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT1,36,4,40,14,ES_AUTOHSCROLL | ES_NUMBER                    
+    CONTROL         "",IDC_SPIN1,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,65,4,11,14
+    LTEXT           "% Green:",IDC_STATIC,4,20,30,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT2,36,20,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_SPIN2,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,65,20,11,14
+    LTEXT           "% Blue:",IDC_STATIC,4,36,30,14,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT3,36,36,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "",IDC_SPIN3,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | UDS_NOTHOUSANDS,64,37,11,14
+    PUSHBUTTON      "Ok",IDOK,82,10,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,82,31,50,14
+END
+
+IDD_DIALOG3 DIALOGEX DISCARDABLE  10, 10, 350, 159
+STYLE DS_MODALFRAME | DS_NOIDLEMSG | DS_3DLOOK | DS_NOFAILCREATE | 
+    WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Raw region data"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Header",IDC_STATIC,4,4,125,75,BS_CENTER
+    EDITTEXT        IDC_EDIT1,72,17,52,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Size of header:",IDC_STATIC,8,17,62,12,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT2,72,32,52,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Type of region:",IDC_STATIC,8,32,62,12,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT3,72,47,52,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Number of regions:",IDC_STATIC,8,47,62,12,
+                    SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT4,72,62,52,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Size of raw data:",IDC_STATIC,8,62,62,12,SS_CENTERIMAGE
+    GROUPBOX        "Bounding rectangle",IDC_STATIC,4,81,125,75,BS_CENTER
+    EDITTEXT        IDC_EDIT5,72,94,52,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Upper left X:",IDC_STATIC,8,94,62,12,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT6,72,109,52,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Upper left Y:",IDC_STATIC,8,109,62,12,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT7,72,124,52,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Lower right X:",IDC_STATIC,8,124,62,12,SS_CENTERIMAGE
+    EDITTEXT        IDC_EDIT8,72,139,52,12,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Lower right Y:",IDC_STATIC,8,139,62,12,SS_CENTERIMAGE
+    GROUPBOX        "Region data",IDC_STATIC,134,4,212,111,BS_CENTER
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | 
+                    LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_BORDER | 
+                    WS_TABSTOP,140,17,199,93
+    PUSHBUTTON      "OR",IDC_BUTTON1,134,122,50,14
+    PUSHBUTTON      "AND",IDC_BUTTON2,188,122,50,14
+    PUSHBUTTON      "Delete",IDC_BUTTON3,242,122,50,14
+    PUSHBUTTON      "Save",IDOK,296,122,50,14
+    PUSHBUTTON      "XOR",IDC_BUTTON4,134,140,50,14
+    PUSHBUTTON      "DIFF",IDC_BUTTON5,188,140,50,14
+    PUSHBUTTON      "Move",IDC_BUTTON6,242,140,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,296,140,50,14
+END
+
+IDD_DIALOG4 DIALOGEX DISCARDABLE  0, 0, 158, 131
+STYLE DS_MODALFRAME | DS_NOIDLEMSG | DS_3DLOOK | DS_NOFAILCREATE | //;DS_CENTER | 
+    WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Image information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Ok",IDCANCEL,52,110,50,15
+    LTEXT           "Image file name:",IDC_STATIC,4,3,52,9
+    EDITTEXT        IDC_EDIT1,4,14,150,15,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Image width (pixels):",IDC_STATIC,4,35,64,9
+    EDITTEXT        IDC_EDIT2,74,33,80,15,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Image height (pixels):",IDC_STATIC,4,53,68,9
+    EDITTEXT        IDC_EDIT3,74,51,80,15,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Aspect ratio:",IDC_STATIC,4,72,40,9
+    EDITTEXT        IDC_EDIT4,74,70,80,15,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Memory used (bytes):",IDC_STATIC,4,90,68,9
+    EDITTEXT        IDC_EDIT5,74,88,80,15,ES_AUTOHSCROLL | ES_READONLY
+END
+
+IDD_DIALOG5 DIALOGEX DISCARDABLE  4, 8, 97, 108
+STYLE DS_MODALFRAME | DS_NOIDLEMSG | DS_3DLOOK | DS_NOFAILCREATE | 
+    WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "RECT.left:",IDC_STATIC,4,6,34,8
+    EDITTEXT        IDC_EDIT1,53,4,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "RECT.top:",IDC_STATIC,4,23,34,8
+    EDITTEXT        IDC_EDIT2,53,21,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "RECT.right:",IDC_STATIC,4,40,38,8
+    EDITTEXT        IDC_EDIT3,53,38,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "RECT.bottom:",IDC_STATIC,4,57,46,8
+    EDITTEXT        IDC_EDIT4,53,55,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Reverse operation",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | 
+                    WS_DISABLED | WS_TABSTOP,12,74,74,10
+    PUSHBUTTON      "Ok",IDOK,10,90,32,14
+    PUSHBUTTON      "Cancel",IDCANCEL,55,90,32,14
+END
+
+IDD_DIALOG6 DIALOGEX 4, 8, 99, 73
+STYLE DS_MODALFRAME | DS_NOIDLEMSG | DS_3DLOOK | DS_NOFAILCREATE | 
+    WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Move"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Displacement",IDC_STATIC,4,4,91,46,BS_CENTER
+    LTEXT           "X axis:",IDC_STATIC,9,18,22,8
+    EDITTEXT        IDC_EDIT1,33,17,56,14,ES_AUTOHSCROLL
+    LTEXT           "Y axis:",IDC_STATIC,9,33,22,8
+    EDITTEXT        IDC_EDIT2,33,32,56,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Ok",IDOK,4,55,39,14
+    PUSHBUTTON      "Cancel",IDCANCEL,56,55,39,14
+END
+
+IDD_DIALOG7 DIALOGEX 0, 0, 1, 1
+STYLE DS_NOIDLEMSG | WS_POPUP | WS_VISIBLE | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+;FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "",IDCANCEL,0,0,1,1,NOT WS_VISIBLE
+END
+
+IDD_DIALOG8 DIALOGEX 0, 0, 330, 180
+STYLE WS_THICKFRAME | DS_NOIDLEMSG | DS_3DLOOK | DS_NOFAILCREATE | DS_CENTER | 
+    WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Read Me"
+FONT 10, "Courier New"
+BEGIN
+    CONTROL     "",IDC_EDIT1,"RichEdit",WS_VISIBLE | WS_CHILD | WS_VSCROLL |
+                WS_HSCROLL | ES_MULTILINE | ES_AUTOVSCROLL | ES_WANTRETURN | 
+                ES_READONLY,0,0,330,180,WS_EX_CLIENTEDGE
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MENU1 MENUEX DISCARDABLE 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "New",                         ID_FILE_NEW
+        MENUITEM "Open...",                     ID_FILE_OPEN
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Save",                        ID_FILE_SAVE,           MFT_STRING,MFS_GRAYED
+        MENUITEM "Save as...",                  ID_FILE_SAVEAS,         MFT_STRING,MFS_GRAYED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Exit",                        ID_FILE_EXIT
+    END
+    POPUP "Image"
+    BEGIN
+        MENUITEM "Load...",                     ID_IMAGE_LOAD
+        MENUITEM "Info...",                     ID_IMAGE_INFO,          MFT_STRING,MFS_GRAYED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Pick transparent color",      ID_IMAGE_SELECTCOLOR,   MFT_STRING,MFS_GRAYED
+        MENUITEM "Enter trans. color RGB...",   ID_IMAGE_ENTERRGB,      MFT_STRING,MFS_GRAYED
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "Set RGB tolerance...",        ID_IMAGE_TOLERANCE
+        MENUITEM "Background color...",         ID_IMAGE_BACKCOLOR
+    END
+    POPUP "Region"
+    BEGIN
+        MENUITEM "Hide",                        ID_REGION_HIDE,         MFT_RADIOCHECK
+        MENUITEM "Show as mask",                ID_REGION_SHOWMASK,     MFT_RADIOCHECK, MFS_CHECKED
+        MENUITEM "Show as transparency",        ID_REGION_SHOWTRANS,    MFT_RADIOCHECK
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "View raw data...",            ID_REGION_VIEWRAWDATA,  MFT_STRING,MFS_GRAYED
+    END
+    POPUP "Help", ,MFT_RIGHTJUSTIFY
+    BEGIN
+        MENUITEM "Read Me...",                  ID_HELP_README
+        MENUITEM MFT_SEPARATOR
+        MENUITEM "About...",                    ID_HELP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Image
+//
+
+IDI_IMAGE1  IMAGE DISCARDABLE "Res/About.gif"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Region
+//
+
+IDR_REGION1 RCDATA DISCARDABLE "Res/About.rgn"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Raw data
+//
+//; OJO que es terminado en cero (\0)
+IDR_TEXT1 RCDATA DISCARDABLE "Res/readme.dat"
