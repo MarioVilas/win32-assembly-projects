@@ -1,0 +1,2 @@
+#define STANDALONE_VERSION 1
+#include "../Main.Rc"
