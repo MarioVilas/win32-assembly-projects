@@ -1,0 +1,31 @@
+; Safe subclasser
+; Copyright ® Mario Vilas (aka QvasiModo)
+; Please refer to the readme file for licensing and usage instructions.
+
+; This is a WinAsm Studio project file.
+; Get WinAsm at http://winasm.code4u.net
+
+[PROJECT]
+Type=3
+
+[MAKE]
+CompileRC=/v
+RCToObj=
+Assemble=/c /coff /Cp /nologo
+Link=-LIB
+Out=
+
+[SHOWFILE]
+1=3
+2=1
+3=4294967292
+4=4294967273
+5=852
+6=703
+7=1
+
+[FILES]
+1=SafeSubclass.asm
+2=SafeSubclass.inc
+3=readme.txt
+
